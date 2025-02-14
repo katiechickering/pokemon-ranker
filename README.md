@@ -50,8 +50,8 @@ connection = pymysql.connect(host = 'localhost',
 
 ## 💭 Feedback and Contributing
 
-If you found this insightful or if you have suggestions, please start a [discussion]()!
+If you found this insightful or if you have suggestions, please start a [discussion](https://github.com/katiechickering/pokemon-ranker/discussions/1)!
 
 ### References:
-Hide rank option once it has been selected using jQuery: https://stackoverflow.com/questions/26137309/remove-selected-option-from-another-select-box
-Project inspiration: https://cajunavenger.github.io/
+Hide rank option once it has been selected using jQuery: [Linked here](https://stackoverflow.com/questions/26137309/remove-selected-option-from-another-select-box)
+Project inspiration:[Linked here](https://cajunavenger.github.io/)
