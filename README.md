@@ -55,4 +55,4 @@ If you found this insightful or if you have suggestions, please start a [discuss
 
 **Reference**: Hide rank option once it has been selected using jQuery [linked here](https://stackoverflow.com/questions/26137309/remove-selected-option-from-another-select-box)
 
-**Reference**: Project inspiration[linked here](https://cajunavenger.github.io/)
+**Reference**: Project inspiration [linked here](https://cajunavenger.github.io/)
