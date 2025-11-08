@@ -1,3 +1,16 @@
 body {
     background-color: paleturquoise;
 }
+.select-width {
+    width: 200px;
+}
+form img {
+    height: 200px;
+    width: 200px;
+}
+.Charmander {
+    width: 150px;
+}
+.Squirtle {
+    width: 185px;
+}
