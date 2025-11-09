@@ -1,42 +1,40 @@
 import pymysql.cursors
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 class MySQLConnection:
-    
-    def __init__(self, db):
-        connection = pymysql.connect(
-            host = os.getenv("DB_HOST"),
-            user = os.getenv("DB_USER"),
-            password = os.getenv("DB_PASSWORD"),
-            db = db,
-            charset = 'utf8mb4',
-            cursorclass = pymysql.cursors.DictCursor,
-            autocommit = False
+    def __init__(self):
+        self.connection = pymysql.connect(
+            host=os.getenv("TIDB_HOST"),
+            port=int(os.getenv("TIDB_PORT")),
+            user=os.getenv("TIDB_USER"),
+            password=os.getenv("TIDB_PASSWORD"),
+            db=os.getenv("TIDB_DATABASE"),
+            charset='utf8mb4',
+            cursorclass=pymysql.cursors.DictCursor,
+            autocommit=False
         )
-        self.connection = connection
     
-    def query_db(self, query:str, data:dict=None):
+    def query_db(self, query: str, data: dict = None):
+        """Executes a query and returns results if SELECT."""
         with self.connection.cursor() as cursor:
             try:
-                query = cursor.mogrify(query, data)
+                if data:
+                    query = cursor.mogrify(query, data)
                 print("Running Query:", query)
                 cursor.execute(query)
-                if query.lower().find("insert") >= 0:
+                if query.lower().strip().startswith("insert"):
                     self.connection.commit()
                     return cursor.lastrowid
-                elif query.lower().find("select") >= 0:
-                    result = cursor.fetchall()
-                    return result
+                elif query.lower().strip().startswith("select"):
+                    return cursor.fetchall()
                 else:
                     self.connection.commit()
             except Exception as e:
-                print("Something went wrong", e)
+                print("Something went wrong:", e)
                 return False
             finally:
                 self.connection.close()
 
-def connect_to_mysql(db):
-    return MySQLConnection(db)
+def connect_to_mysql():
+    """Factory function to return a MySQLConnection object."""
+    return MySQLConnection()

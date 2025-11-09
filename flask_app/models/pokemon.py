@@ -1,11 +1,10 @@
+# flask_app/models/pokemon.py
 from flask_app.config.mysqlconnection import connect_to_mysql
-from flask_app import app
 from flask import flash
 import random
 
 # Pokemon class
 class Pokemon:
-    DB = 'pokemon_schema'
     def __init__(self, data):
         self.id = data['id']
         self.name = data['name']
@@ -21,21 +20,17 @@ class Pokemon:
             FROM pokemons 
             ORDER BY `rank`;
         '''
-        results = connect_to_mysql(cls.DB).query_db(query)
+        results = connect_to_mysql().query_db(query)
         if not results:
-            return
-        pokemons = []
-        for row in results:
-            pokemon = cls(row)
-            pokemons.append(pokemon)
-        return pokemons
-    
+            return []
+        return [cls(row) for row in results]
+
     # Delete all Pokemon
     @classmethod
     def delete_all(cls):
         query = 'TRUNCATE TABLE pokemons;'
-        return connect_to_mysql(cls.DB).query_db(query)
-    
+        return connect_to_mysql().query_db(query)
+
     # Check that each Pokemon is ranked uniquely
     @staticmethod
     def validate_rankings(data):
@@ -51,22 +46,22 @@ class Pokemon:
             flash('Duplicate ranks are not allowed', 'ranking')
             is_valid = False
         return is_valid
-    
+
     # Add Pokemon to the database
     @classmethod
     def create_all(cls, data):
-        Pokemon.delete_all()
-        if not Pokemon.validate_rankings(data):
+        cls.delete_all()
+        if not cls.validate_rankings(data):
             return False
-        for key, value in data.items():
-            pokemon_data = {'name': key, 'rank': int(value)}
+        for name, rank in data.items():
+            pokemon_data = {'name': name, 'rank': int(rank)}
             query = '''
                 INSERT INTO pokemons (name, `rank`, created_at, updated_at) 
                 VALUES (%(name)s, %(rank)s, NOW(), NOW());
             '''
-            connect_to_mysql(cls.DB).query_db(query, pokemon_data)
+            connect_to_mysql().query_db(query, pokemon_data)
         return True
-    
+
     # Set Pokemon names for the rank forms
     @staticmethod
     def set_names():
@@ -75,18 +70,18 @@ class Pokemon:
             'Gengar', 'Dragonite', 'JigglyPuff',
             'Snorlax', 'Gyarados', 'Eevee', 'Onix'
         ]
-    
+
     # Randomize the ranks
     @classmethod
     def randomize(cls, data):
-        Pokemon.delete_all()
+        cls.delete_all()
         numbers = list(range(1, 11))
         random.shuffle(numbers)
-        for key, num in zip(data.keys(), numbers):
-            pokemon_data = {'name': key, 'rank': num}
+        for name, rank in zip(data.keys(), numbers):
+            pokemon_data = {'name': name, 'rank': rank}
             query = '''
                 INSERT INTO pokemons (name, `rank`, created_at, updated_at)
                 VALUES (%(name)s, %(rank)s, NOW(), NOW());
             '''
-            connect_to_mysql(cls.DB).query_db(query, pokemon_data)
+            connect_to_mysql().query_db(query, pokemon_data)
         return
