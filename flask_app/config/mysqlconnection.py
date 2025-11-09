@@ -12,6 +12,7 @@ class MySQLConnection:
             charset='utf8mb4',
             cursorclass=pymysql.cursors.DictCursor,
             autocommit=False,
+            ssl={'ca': '/etc/ssl/cert.pem'}
         )
     
     def query_db(self, query: str, data: dict = None):
