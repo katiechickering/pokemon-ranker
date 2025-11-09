@@ -12,7 +12,7 @@ Check out my deployed application [HERE](pokemon-ranker-six.vercel.app)
 
 ## ℹ️ Overview
 
-This Pokemon ranking app is my final project for Harvard's Introduction to Computer Science course, also known as CS50. This course started my software engineering journey and I am thrilled to share what I learned. I have encorporated Flask, Python, Jinja, jQuery, SQL, HTML, and Bootstrap into my project to hightlight some of the languages I have learned. My files are organized in an MVC format. I hope you have some fun while ranking your favorite Pokemon!
+This Pokemon ranking app is my final project for Harvard's Introduction to Computer Science course, also known as CS50. This course started my software engineering journey and I am thrilled to share what I learned. I have incorporated Flask, Python, Jinja, jQuery, SQL, HTML, and Bootstrap into my project to highlight some of the languages I have learned. My files are organized in an MVC format. I hope you have some fun while ranking your favorite Pokemon!
 
 
 ## 🚀 Deployment
