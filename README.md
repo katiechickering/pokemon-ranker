@@ -20,7 +20,7 @@ Hello, my name is Katie. This Pokemon ranking app is my final project for Harvar
 To deploy my application, I used Vercel which is a cloud platform for hosting full-stack applications. It syncs with GitHub and updates my project every time I push to the main branch! I used TiDB as the MySQL database host. It integrates with Vercel to make a seamless connection! I included a .sql file and .env.example to see how my database and environment variables are set up.
 
 
-### ✍️ Authors
+## ✍️ Authors
 
 Katie Chickering - https://github.com/katiechickering
 
