@@ -10,7 +10,7 @@
 
 ## ℹ️ Overview
 
-Hello, my name is Katie. This Pokemon ranking app is my final project for Harvard's Introduction to Computer Science course, also known as CS50. This course started my software engineering journey and I am thrilled to share what I learned. I have encorporated Flask, Python, Jinja, jQuery, SQL, HTML, and Bootstrap. into my project to hightlight some of the languages I have learned. My files are organized in an MVC format. I hope you have some fun while ranking your favorite Pokemon!
+Hello, my name is Katie. This Pokemon ranking app is my final project for Harvard's Introduction to Computer Science course, also known as CS50. This course started my software engineering journey and I am thrilled to share what I learned. I have encorporated Flask, Python, Jinja, jQuery, SQL, HTML, and Bootstrap into my project to hightlight some of the languages I have learned. My files are organized in an MVC format. I hope you have some fun while ranking your favorite Pokemon!
 
 
 ### ✍️ Authors
@@ -18,35 +18,9 @@ Hello, my name is Katie. This Pokemon ranking app is my final project for Harvar
 Katie Chickering - https://github.com/katiechickering
 
 
-## 🚀 Usage
+## 🚀 Deployment
 
-```bash
-python server.py
- * Serving Flask app 'flask_app'
- * Debug mode: on
-WARNING: This is a development server. Do not use it in a production deployment.
-Use a production WSGI server instead.
- * Running on http://localhost:5001
-```
-Run 'python server.py' in your terminal. Then, copy and paste http://localhost:5001 into your browser to view the application!
-
-
-## ⬇️ Installation
-
-```bash
-python pipenv install
-```
-First, install all the required packages with the code above. Then, run pokemon_ranker.sql in your local MySQL database software to save the database. Finally, change the user and password in lines 8 and 9 of flask_app/config/mysqlconnection.py to match your database credentials. Please see below for a reference.
-
-```py
-connection = pymysql.connect(host = 'localhost',
-                            user = 'root', # Line 8
-                            password = 'rootroot', # Line 9
-                            db = db,
-                            charset = 'utf8mb4',
-                            cursorclass = pymysql.cursors.DictCursor,
-                            autocommit = False)
-```
+To deploy my application, I used Vercel which is a cloud platform for hosting full-stack applications. It syncs with GitHub and updates my project every time I push to the main branch! I used TiDB as the MySQL database host. It integrates with Vercel to make a seamless connection! I included a .sql file and .env.example to see how my database and environment variables are set up.
 
 
 ## 💭 Feedback and Contributing
