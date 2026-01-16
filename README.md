@@ -1,6 +1,6 @@
 # ⚡ Pokemon Ranker
 
-Check out my deployed application [HERE](pokemon-ranker-six.vercel.app)
+Check out my deployed application [HERE](https://pokemon-ranker-six.vercel.app/)
 
 
 ## 🌟 Highlights
