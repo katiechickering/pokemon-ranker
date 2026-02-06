@@ -3,6 +3,16 @@
 Check out my deployed application [HERE](https://pokemon-ranker-six.vercel.app/)
 
 
+## 🛠️ Technologies Used
+
+- **Core Stack:** Flask, MySQL
+- **Languages:** Python, SQL, Jinja, HTML, jQuery
+- **Bootstrap:** Front-end styling
+- **Vercel:** Website deployment
+- **TiDB:** MySQL database host
+- **Dev Tools:** VS Code, GitHub
+
+
 ## 🌟 Highlights
 
 - Rank Pokemon from 1 to 10
