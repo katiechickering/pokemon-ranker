@@ -10,7 +10,7 @@ Check out my deployed application [HERE](https://pokemon-ranker-six.vercel.app/)
 - **Bootstrap:** Front-end styling
 - **Vercel:** Website deployment
 - **TiDB:** MySQL database host
-- **Dev Tools:** VS Code, GitHub
+- **GitHub:** Version control & collaboration
 
 
 ## 🌟 Highlights
